@@ -10,13 +10,13 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit }) {
-    const files = await require.context(
+    const blogPostFiles = await require.context(
       '~/assets/content/blog/',
       false,
       /\.json$/
     )
-    const blogPosts = files.keys().map((key) => {
-      const res = files(key)
+    const blogPosts = blogPostFiles.keys().map((key) => {
+      const res = blogPostFiles(key)
       res.slug = key.slice(2, -5)
       return res
     })

@@ -24,7 +24,7 @@
       >
         <div
           v-for="post in loadedPosts"
-          :key="post"
+          :key="post.slug"
           class="flex flex-col rounded-lg shadow-lg overflow-hidden"
         >
           <nuxt-link :to="postLink(post)" class="flex-shrink-0">
@@ -68,7 +68,7 @@
                 </p>
                 <div class="flex text-sm leading-5 text-gray-500">
                   <time datetime="2020-03-16">
-                    Mar 16, 2020
+                    {{ post.date | date }}
                   </time>
                   <span class="mx-1">
                     &middot;
@@ -91,7 +91,7 @@ export default {
   name: 'BlogLoop',
   data() {
     return {
-      postCount: 3,
+      postCount: 4,
     }
   },
   computed: {

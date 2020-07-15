@@ -1,7 +1,8 @@
 <template>
   <div>
-    <article>
+    <article class="mx-auto prose">
       <h1>{{ blogPost.title }}</h1>
+      <div v-html="$md.render(blogPost.body)"></div>
     </article>
   </div>
 </template>
