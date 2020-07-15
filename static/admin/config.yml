@@ -2,8 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/img
-public_folder: /img
+media_folder: "images/uploads"
 
 collections:
   - name: 'blog'
@@ -11,11 +10,82 @@ collections:
     format: 'json'
     folder: 'assets/content/blog'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title',name: 'title',widget: 'string'}
+      - { label: "Featured Image",name: "thumbnail",widget: "image",required: false}
+      - { label: 'Publish Date',name: 'date',widget: 'datetime'}
+      - { label: 'Description',name: 'description',widget: 'string'}
+      - { label: 'Body',name: 'body',widget: 'markdown'} 
+
+  - name: 'page'
+    label: 'Pages'
+    format: 'json'
+    folder: 'assets/content/pages'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: 'Title',name: 'title',widget: 'string'}
+      - { label: 'Publish Date',name: 'date',widget: 'datetime'}
+      - { label: 'Body',name: 'body',widget: 'markdown'} 
+  
+  - name: 'settings'
+    label: 'Settings'
+    delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'assets/settings/settings.json'
+        description: 'General Site Settings'
+        fields:
+          - { label: 'Global title', name: 'site_title', widget: 'string' }
+
+      - name: 'authors'
+        label: 'Authors'
+        file: 'assets/settings/authors.json'
+        description: 'Author descriptions'
+        fields:
+          - name: authors
+            label: Authors
+            label_singular: 'Author'
+            widget: list
+            fields:
+              - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
+              - { label: 'Description', name: 'description', widget: 'markdown' }
+      - name: 'mainmenu'
+        label: 'Main Menu'
+        file: 'assets/settings/mainmenu.json'
+        description: 'Author descriptions'
+        fields:
+          - name: menuitems
+            label: Menu items
+            label_singular: 'Menu item'
+            widget: list
+            fields:
+              - { label: 'Label', name: 'label', widget: 'string', hint: 'The name of the menu item.' }
+              - label: "Link"
+                name: "link"
+                widget: "relation"
+                collection: "page"
+                searchFields: ["page.title", "twitterHandle"]
+                valueField: "{{slug}}"
+                displayFields: ["title"]
+              - name: submenuitems
+                label: Submenu items
+                label_singular: 'Submenu item'
+                widget: list
+                fields:
+                  - { label: 'Label', name: 'label', widget: 'string', hint: 'The name of the menu item.' }
+                  - label: "Link"
+                    name: "link"
+                    widget: "relation"
+                    collection: "page"
+                    searchFields: ["page.title", "twitterHandle"]
+                    valueField: "{{slug}}"
+                    displayFields: ["title"]
