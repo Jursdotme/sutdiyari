@@ -58,7 +58,7 @@ collections:
             fields:
               - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
               - { label: 'Description', name: 'description', widget: 'markdown' }
-              - { label: 'Portrait', name: 'portrait', widget: "image", default: "/uploads/chocolate-dogecoin.jpg" }
+              - { label: 'Portrait', name: 'portrait', widget: "image" }
       - name: 'mainmenu'
         label: 'Main Menu'
         file: 'assets/settings/mainmenu.json'
