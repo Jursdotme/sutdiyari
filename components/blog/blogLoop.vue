@@ -91,7 +91,7 @@ export default {
   name: 'BlogLoop',
   data() {
     return {
-      postCount: 4,
+      postCount: 10,
     }
   },
   computed: {
