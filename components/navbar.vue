@@ -56,9 +56,9 @@
           </div>
           <div class="hidden md:ml-6 md:flex md:items-center">
             <a
-              href="#"
+              href="/"
               class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >Dashboard</a
+              >Home</a
             >
             <a
               href="#"
@@ -70,10 +70,10 @@
               class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
               >Projects</a
             >
-            <a
-              href="#"
+            <nuxt-link
+              to="blog"
               class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >Calendar</a
+              >Blog</nuxt-link
             >
           </div>
         </div>
@@ -111,9 +111,9 @@
     <div class="hidden md:hidden">
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <a
-          href="#"
+          href="/"
           class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >Dashboard</a
+          >Home</a
         >
         <a
           href="#"
@@ -125,10 +125,10 @@
           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
           >Projects</a
         >
-        <a
-          href="#"
+        <nuxt-link
+          to="/"
           class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-          >Calendar</a
+          >Blog</nuxt-link
         >
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
