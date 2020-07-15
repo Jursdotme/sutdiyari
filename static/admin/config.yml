@@ -17,12 +17,8 @@ collections:
       - { label: 'Title',name: 'title',widget: 'string'}
       - { label: "Featured Image",name: "thumbnail",widget: "image",required: false}
       - { label: 'Publish Date',name: 'date',widget: 'datetime'}
-      - label: "Post Author"
-        name: "author"
-        widget: "relation"
-        collection: "authors"
-        searchFields: ["name"]
-        valueField: "name"
+      - { label: "Post Author" name: "author" widget: "relation" collection: "authors" searchFields: ["name"] valueField: "name"}
+      - { label: "Category", name: "category", widget: "relation", collection: "blogcategories", searchFields: ["title"], valueField: "title", displayFields: ["title"], required: false}
       - { label: 'Description',name: 'description',widget: 'string'}
       - { label: 'Body',name: 'body',widget: 'markdown'} 
 
@@ -96,3 +92,12 @@ collections:
                     searchFields: ["page.title", "twitterHandle"]
                     valueField: "{{slug}}"
                     displayFields: ["title"]
+  - label: 'Categories'
+    name: 'blogcategories'
+    folder: "content/categories/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: 'json'
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Description, name: description, widget: string, required: false}
