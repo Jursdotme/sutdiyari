@@ -5,5 +5,12 @@
       "name": "John Doe",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod varius justo et pretium. Suspendisse."
     }
+  ],
+  "author": [
+    {
+      "name": "Rasmus Jürs",
+      "description": "Beskrivelse",
+      "portrait": "/images/uploads/portrait.jpg"
+    }
   ]
 }
