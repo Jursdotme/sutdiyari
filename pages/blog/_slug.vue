@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article class="mx-auto prose">
+    <article class="mx-auto mt-12 prose">
       <h1>{{ blogPost.title }}</h1>
       <div v-html="$md.render(blogPost.body)"></div>
     </article>

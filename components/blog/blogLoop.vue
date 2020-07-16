@@ -37,9 +37,9 @@
           <div class="flex-1 bg-white p-6 flex flex-col justify-between">
             <div class="flex-1">
               <p class="text-sm leading-5 font-medium text-indigo-600">
-                <nuxt-link :to="postLink(post)" class="hover:underline"
-                  >Blog</nuxt-link
-                >
+                <nuxt-link :to="postLink(post)" class="hover:underline">{{
+                  post.category
+                }}</nuxt-link>
               </p>
               <nuxt-link :to="postLink(post)" class="block">
                 <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
@@ -63,7 +63,7 @@
               <div class="ml-3">
                 <p class="text-sm leading-5 font-medium text-gray-900">
                   <a href="#" class="hover:underline">
-                    Roel Aufderhar
+                    {{ post.author }}
                   </a>
                 </p>
                 <div class="flex text-sm leading-5 text-gray-500">
@@ -91,7 +91,7 @@ export default {
   name: 'BlogLoop',
   data() {
     return {
-      postCount: 10,
+      postCount: 3,
     }
   },
   computed: {

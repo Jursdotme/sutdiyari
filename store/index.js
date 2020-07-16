@@ -1,20 +1,22 @@
 export const state = () => ({
   blogPosts: [],
+  authors: [],
+  settings: [],
 })
 
-export const mutations = {
-  setBlogPosts(state, list) {
-    state.blogPosts = list
-  },
-}
-
 export const actions = {
-  async nuxtServerInit({ commit }) {
+  async nuxtServerInit({ dispatch }) {
+    await dispatch('getBlogPosts')
+    await dispatch('getAuthors')
+    await dispatch('getSettings')
+  },
+  async getBlogPosts({ commit }) {
     const blogPostFiles = await require.context(
       '~/assets/content/blog/',
       false,
       /\.json$/
     )
+
     const blogPosts = blogPostFiles
       .keys()
       .map((key) => {
@@ -28,5 +30,27 @@ export const actions = {
         return new Date(b.date) - new Date(a.date)
       })
     await commit('setBlogPosts', blogPosts)
+  },
+
+  async getAuthors({ commit }) {
+    const authorFile = require('~/assets/settings/authors.json')
+    await commit('setAuthors', authorFile)
+  },
+
+  async getSettings({ commit }) {
+    const settingsFile = require('~/assets/settings/settings.json')
+    await commit('setSettings', settingsFile)
+  },
+}
+
+export const mutations = {
+  setBlogPosts(state, list) {
+    state.blogPosts = list
+  },
+  setAuthors(state, data) {
+    state.authors = data
+  },
+  setSettings(state, data) {
+    state.settings = data
   },
 }
