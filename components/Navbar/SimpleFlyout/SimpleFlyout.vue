@@ -87,7 +87,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 200ms;
