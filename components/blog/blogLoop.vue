@@ -103,6 +103,10 @@ export default {
     postLink(post) {
       return 'blog/' + post.slug
     },
+    postAuthor(post) {
+      const authors = this.$store.state.authors.author
+      return authors.findIndex((x) => x.name === post.author)
+    },
   },
 }
 </script>

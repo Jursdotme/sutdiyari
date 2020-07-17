@@ -39,7 +39,7 @@ export const actions = {
 
   async getSettings({ commit }) {
     const settingsFile = require('~/assets/settings/settings.json')
-    await commit('setSettings', settingsFile)
+    await commit('setSettings', settingsFile.author)
   },
 }
 

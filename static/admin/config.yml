@@ -59,7 +59,6 @@ collections:
             widget: list
             fields:
               - { label: 'Name', name: 'name', widget: 'string', hint: 'First and Last' }
-              - { label: 'Description', name: 'description', widget: 'markdown' }
               - { label: 'Portrait', name: 'portrait', widget: "image" }
       - name: 'mainmenu'
         label: 'Main Menu'
