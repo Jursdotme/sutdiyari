@@ -55,7 +55,7 @@
                 <a href="#">
                   <img
                     class="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    :src="post.author.portrait"
                     alt=""
                   />
                 </a>
@@ -63,7 +63,7 @@
               <div class="ml-3">
                 <p class="text-sm leading-5 font-medium text-gray-900">
                   <a href="#" class="hover:underline">
-                    {{ post.author }}
+                    {{ post.author.name }}
                   </a>
                 </p>
                 <div class="flex text-sm leading-5 text-gray-500">
@@ -102,10 +102,6 @@ export default {
   methods: {
     postLink(post) {
       return 'blog/' + post.slug
-    },
-    postAuthor(post) {
-      const authors = this.$store.state.authors.author
-      return authors.findIndex((x) => x.name === post.author)
     },
   },
 }

@@ -25,21 +25,31 @@ export const actions = {
         return res
       })
       .sort(function (a, b) {
-        // Turn your strings into dates, and then subtract them
-        // to get a value that is either negative, positive, or zero.
+        // Sort posts by date, descending.
         return new Date(b.date) - new Date(a.date)
       })
+
+    // Add author info to post
+    const authorFile = require('~/assets/settings/authors.json')
+    const authorList = authorFile.author
+    blogPosts.forEach(function (post) {
+      const authorObject = authorList.find(
+        (author) => author.name === post.author
+      )
+      post.author = authorObject
+    })
+
     await commit('setBlogPosts', blogPosts)
   },
 
   async getAuthors({ commit }) {
     const authorFile = require('~/assets/settings/authors.json')
-    await commit('setAuthors', authorFile)
+    await commit('setAuthors', authorFile.author)
   },
 
   async getSettings({ commit }) {
     const settingsFile = require('~/assets/settings/settings.json')
-    await commit('setSettings', settingsFile.author)
+    await commit('setSettings', settingsFile)
   },
 }
 
