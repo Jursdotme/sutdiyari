@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Hero />
+    <Features />
     <BlogLoop />
   </div>
 </template>
