@@ -52,19 +52,15 @@
             </div>
             <div class="mt-6 flex items-center">
               <div class="flex-shrink-0">
-                <a href="#">
-                  <img
-                    class="h-10 w-10 rounded-full"
-                    :src="post.author.portrait"
-                    alt=""
-                  />
-                </a>
+                <img
+                  class="h-10 w-10 rounded-full"
+                  :src="post.author.portrait"
+                  alt=""
+                />
               </div>
               <div class="ml-3">
                 <p class="text-sm leading-5 font-medium text-gray-900">
-                  <a href="#" class="hover:underline">
-                    {{ post.author.name }}
-                  </a>
+                  {{ post.author.name }}
                 </p>
                 <div class="flex text-sm leading-5 text-gray-500">
                   <time datetime="2020-03-16">
