@@ -44,31 +44,8 @@
                 </p>
               </nuxt-link>
             </div>
-            <div class="mt-6 flex items-center">
-              <div class="flex-shrink-0">
-                <img
-                  class="h-10 w-10 rounded-full"
-                  :src="post.author.portrait"
-                  alt=""
-                />
-              </div>
-              <div class="ml-3">
-                <p class="text-sm leading-5 font-medium text-gray-900">
-                  {{ post.author.name }}
-                </p>
-                <div class="flex text-sm leading-5 text-gray-500">
-                  <time datetime="2020-03-16">
-                    {{ post.date | date }}
-                  </time>
-                  <span class="mx-1">
-                    &middot;
-                  </span>
-                  <span>
-                    6 min read
-                  </span>
-                </div>
-              </div>
-            </div>
+
+            <PostMeta :author-data="post.author" :date="post.date" />
           </div>
         </div>
       </div>

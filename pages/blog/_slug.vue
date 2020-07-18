@@ -1,8 +1,15 @@
 <template>
   <div>
-    <article class="mx-auto mt-12 prose">
-      <h1>{{ blogPost.title }}</h1>
-      <div v-html="$md.render(blogPost.body)"></div>
+    <article
+      class="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+    >
+      <h1>{{ post.title }}</h1>
+
+      <PostMeta :author-data="post.author" :date="post.date" />
+
+      <img :src="post.thumbnail" alt="" />
+
+      <div v-html="$md.render(post.body)"></div>
     </article>
   </div>
 </template>
@@ -11,10 +18,10 @@
 export default {
   name: 'PostPage',
   async asyncData({ params, payload }) {
-    if (payload) return { blogPost: payload }
+    if (payload) return { post: payload }
     else
       return {
-        blogPost: await require(`@/assets/content/blog/${params.slug}.json`),
+        post: await require(`@/assets/content/blog/${params.slug}.json`),
       }
   },
   methods: {
