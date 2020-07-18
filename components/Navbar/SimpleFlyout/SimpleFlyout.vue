@@ -7,7 +7,7 @@
       class="group text-gray-500 inline-flex items-center space-x-2 text-base leading-6 font-medium hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
       @click="toggle()"
     >
-      <span>More</span>
+      <span>{{ label }}</span>
       <!-- Item active: "text-gray-600", Item inactive: "text-gray-400" -->
       <svg
         class="text-gray-400 h-5 w-5 group-hover:text-gray-500 group-focus:text-gray-500 transition ease-in-out duration-150"
@@ -32,31 +32,22 @@
             <div
               class="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"
             >
-              <SimpleFlyoutNavItem
-                label="Blog"
-                target="/blog"
-                description="Learn about tips, product updates and company culture."
-              />
-
-              <SimpleFlyoutNavItem
-                label="Help Center"
-                description="Get all of your questions answered in our forums of contact support."
-              />
-
-              <SimpleFlyoutNavItem
-                label="Guides"
-                description="Learn how to maximize our platform to get the most out of it."
-              />
-
-              <SimpleFlyoutNavItem
-                label="Events"
-                description="Check out webinars with experts and learn about our annual conference."
-              />
-
-              <SimpleFlyoutNavItem
-                label="Security"
-                description="Understand how we take your privacy seriously."
-              />
+              <nuxt-link
+                v-for="(subItem, index) in subItems"
+                :key="`subItem-${index}`"
+                :to="subItem.target"
+                class="-m-3 p-3 block space-y-1 rounded-md hover:bg-gray-50 transition ease-in-out duration-150"
+              >
+                <p class="text-base leading-6 font-medium text-gray-900">
+                  {{ subItem.label }}
+                </p>
+                <p
+                  v-if="subItem.description"
+                  class="text-sm leading-5 text-gray-500"
+                >
+                  {{ subItem.description }}
+                </p>
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -70,6 +61,18 @@ export default {
   name: 'AdvancedFlyout',
   directives: {
     clickOutside: vClickOutside.directive,
+  },
+  props: {
+    label: {
+      type: String,
+      default: 'Label Missing',
+    },
+    subItems: {
+      type: Array,
+      default() {
+        return { message: 'No object was passed to submenu' }
+      },
+    },
   },
   data() {
     return {

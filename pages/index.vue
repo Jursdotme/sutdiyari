@@ -3,6 +3,7 @@
     <Hero />
     <Features />
     <BlogLoop />
+    <LogoCloud />
   </div>
 </template>
 
