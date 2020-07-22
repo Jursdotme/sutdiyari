@@ -20,7 +20,7 @@
         // Fields the user need to fill out when adding an instance of the component
         fields: [{name: 'id', label: 'Youtube Video ID', widget: 'string'}],
         // Pattern to identify a block as being an instance of this component
-        pattern: /^youtube (\S+)$/,
+        pattern: /^<div class='embed-container'><iframe src='https:\/\/www\.youtube\.com\/embed\/(\S+)' frameborder='0' allowfullscreen><\/iframe><\/div>$/,
         // Function to extract data elements from the regexp match
         fromBlock: function(match) {
           return {
@@ -29,7 +29,7 @@
         },
         // Function to create a text block from an instance of this component
         toBlock: function(obj) {
-          return 'youtube ' + obj.id;
+          return "<div class='embed-container'><iframe src='https://www.youtube.com/embed/" + obj.id + "' frameborder='0' allowfullscreen></iframe></div>";
         },
         // Preview output for this component. Can either be a string or a React component
         // (component gives better render performance)
@@ -59,9 +59,7 @@
     },
     // Function to create a text block from an instance of this component
     toBlock: function(obj) {
-      return (
-        "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/" + obj.id + "' frameborder='0' allowfullscreen></iframe></div>"
-      );
+      return "<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/" + obj.id + "' frameborder='0' allowfullscreen></iframe></div>";
     },
     // Preview output for this component. Can either be a string or a React component
     // (component gives better render performance)
