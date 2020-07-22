@@ -159,6 +159,7 @@ export default {
         },
         { label: 'Pricing', target: '/', type: 'normal' },
         { label: 'Docs', target: '/', type: 'normal' },
+
         {
           label: 'Solutions',
           type: 'SimpleFlyout',
@@ -199,6 +200,7 @@ export default {
             },
           ],
         },
+        { label: 'Contact', target: '/contact', type: 'normal' },
       ],
     }
   },
