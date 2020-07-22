@@ -35,7 +35,7 @@
             {{ employee.title }}
           </h3>
           <dl class="mt-1 flex-grow flex flex-col justify-between">
-            <dt class="sr-only">{{ Title }}</dt>
+            <dt class="sr-only">Title</dt>
             <dd class="text-gray-500 text-sm leading-5">
               {{ employee.employeetitle }}
             </dd>
