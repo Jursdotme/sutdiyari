@@ -17,6 +17,7 @@ module.exports = {
       'pages/**/*.vue',
       'plugins/**/*.js',
       'nuxt.config.js',
+      'static/admin/adminPreview.css',
     ],
   },
 }

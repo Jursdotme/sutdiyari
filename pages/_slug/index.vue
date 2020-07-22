@@ -1,7 +1,7 @@
 <template>
   <div>
     <article
-      class="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+      class="mt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl"
     >
       <h1>{{ post.title }}</h1>
 
