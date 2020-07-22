@@ -24,11 +24,5 @@ export default {
         post: await require(`@/assets/content/blog/${params.slug}.json`),
       }
   },
-  methods: {
-    img(inputurl) {
-      const filename = inputurl.match(/([^/]+)(?=\.\w+$)/)[0]
-      return filename
-    },
-  },
 }
 </script>
