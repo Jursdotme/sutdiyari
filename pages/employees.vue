@@ -1,16 +1,16 @@
 <template>
   <div class="bg-gray-50">
     <div class="lg:text-center py-12">
-      <p
+      <h1
         class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
       >
         Employees
-      </p>
-      <h3
+      </h1>
+      <p
         class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
       >
         Meet the Team
-      </h3>
+      </p>
       <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
         Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
         voluptatum cupiditate veritatis in accusamus quisquam.
@@ -28,7 +28,7 @@
         <div class="flex-1 flex flex-col p-8">
           <img
             class="w-32 h-32 flex-shrink-0 mx-auto bg-black rounded-full"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60"
+            :src="employee.portrait"
             alt=""
           />
           <h3 class="mt-6 text-gray-900 text-sm leading-5 font-medium">
@@ -45,7 +45,7 @@
           <div class="-mt-px flex">
             <div class="w-0 flex-1 flex border-r border-gray-200">
               <a
-                href="#"
+                :href="mailToLink(employee)"
                 class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
               >
                 <svg
@@ -65,7 +65,7 @@
             </div>
             <div class="-ml-px w-0 flex-1 flex">
               <a
-                href="#"
+                :href="telLink(employee)"
                 class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm leading-5 text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 transition ease-in-out duration-150"
               >
                 <svg
@@ -92,6 +92,14 @@ export default {
   computed: {
     loadedEmployees() {
       return this.$store.state.employees.slice(0, this.postCount)
+    },
+  },
+  methods: {
+    mailToLink(employee) {
+      return 'mailto:' + employee.email
+    },
+    telLink(employee) {
+      return 'mailto:' + employee.phone
     },
   },
 }
