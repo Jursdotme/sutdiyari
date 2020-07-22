@@ -1,5 +1,6 @@
 export const state = () => ({
   blogPosts: [],
+  pages: [],
   authors: [],
   settings: [],
 })
@@ -7,6 +8,7 @@ export const state = () => ({
 export const actions = {
   async nuxtServerInit({ dispatch }) {
     await dispatch('getBlogPosts')
+    await dispatch('getPages')
     await dispatch('getAuthors')
     await dispatch('getSettings')
   },
@@ -42,6 +44,22 @@ export const actions = {
     await commit('setBlogPosts', blogPosts)
   },
 
+  async getPages({ commit }) {
+    const pageFiles = await require.context(
+      '~/assets/content/pages/',
+      false,
+      /\.json$/
+    )
+
+    const pages = pageFiles.keys().map((key) => {
+      const res = pageFiles(key)
+      res.slug = key.slice(2, -5)
+      return res
+    })
+
+    await commit('setPages', pages)
+  },
+
   async getAuthors({ commit }) {
     const authorFile = require('~/assets/settings/authors.json')
     await commit('setAuthors', authorFile.author)
@@ -56,6 +74,9 @@ export const actions = {
 export const mutations = {
   setBlogPosts(state, list) {
     state.blogPosts = list
+  },
+  setPages(state, list) {
+    state.pages = list
   },
   setAuthors(state, data) {
     state.authors = data
