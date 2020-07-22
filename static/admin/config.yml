@@ -23,18 +23,34 @@ collections:
       - { label: 'Description',name: 'description',widget: 'string'}
       - { label: 'Body',name: 'body',widget: 'markdown'} 
 
-  - name: 'page'
-    label: 'Pages'
+  # - name: 'page'
+  #   label: 'Pages'
+  #   format: 'json'
+  #   folder: 'assets/content/pages'
+  #   create: true
+  #   slug: '{{slug}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - { label: 'Title',name: 'title',widget: 'string'}
+  #     - { label: 'Publish Date',name: 'date',widget: 'datetime'}
+  #     - { label: 'Body',name: 'body',widget: 'markdown'} 
+
+  - name: 'employees'
+    label: 'Employees'
     format: 'json'
-    folder: 'assets/content/pages'
+    folder: 'assets/content/employees'
     create: true
-    slug: '{{slug}}'
+    slug: '{{name}}'
     editor:
       preview: false
     fields:
-      - { label: 'Title',name: 'title',widget: 'string'}
-      - { label: 'Publish Date',name: 'date',widget: 'datetime'}
-      - { label: 'Body',name: 'body',widget: 'markdown'} 
+      - { label: 'Name',name: 'title',widget: 'string'}
+      - { label: 'Title',name: 'employeetitle',widget: 'string'}
+      - { label: 'Biography',name: 'biography',widget: 'text'}
+      - { label: 'Portrait',name: 'portrait',widget: 'image', required: false}
+      - { label: 'Email',name: 'email',widget: 'string'}
+      - { label: 'Phone',name: 'phone',widget: 'string'}
   
   - name: 'settings'
     label: 'Settings'
@@ -98,6 +114,10 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: 'json'
+    editor:
+      preview: false
     fields:
       - {label: Title, name: title, widget: string}
       - {label: Description, name: description, widget: string, required: false}
+
+  
