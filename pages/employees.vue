@@ -39,13 +39,6 @@
             <dd class="text-gray-500 text-sm leading-5">
               {{ employee.employeetitle }}
             </dd>
-            <dt class="sr-only">Role</dt>
-            <dd class="mt-3">
-              <span
-                class="px-2 py-1 text-teal-800 text-xs leading-4 font-medium bg-teal-100 rounded-full"
-                >Admin</span
-              >
-            </dd>
           </dl>
         </div>
         <div class="border-t border-gray-200">
