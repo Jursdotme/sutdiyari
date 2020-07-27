@@ -1,5 +1,8 @@
 # netlify-cms-nuxt
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Jursdotme/netlify-cms-nuxt)
+
+
 ## Build Setup
 
 ```bash
